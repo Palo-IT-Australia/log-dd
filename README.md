@@ -31,6 +31,7 @@ or, do it all together as the pre-commit hook does:
 ___
 ## Technology
 - [Typescript](https://www.typescriptlang.org) - Typescript transpiler
+- [Jest](https://jestjs.io/) - Unit testing framework
 - [Mocha](https://github.com/mochajs/mocha) - Unit testing framework
 - [Chai](https://github.com/chaijs/chai) - Unit testing assertions
 - [Istanbul](https://istanbul.js.org) - Code coverage
