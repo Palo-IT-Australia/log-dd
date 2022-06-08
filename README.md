@@ -3,6 +3,75 @@
 By taking TDD one step further, and specifying what the log output should look like
 before writing the code we can expect that the logs will give maintainers clear and useful logs.
 
+---
+## **Code Kata**
+
+The challenge of this code kata is to implement this TDD library in TypeScript while adhering to the 3 rules of TDD:
+
+### 3 Rules of TDD
+1. Only write production code to make a **failing unit test pass**.
+2. Only write enough of a unit test to **make the test fail**, and not compiling is failing.
+3. Only write enough production code to **make the failing test pass**.
+
+### Overview
+Unit tests should be able to execute some production code then assert that the code under test logged
+using `console.log()`, `console.info()` etc.
+
+`package.json` includes some `devDependencies` and scripts which can be used to build and run unit tests.
+
+Intercepting the `console` methods should be fairly trivial for developer who have enough JavaScript experience.
+If you need a hint on where to start, refer to the implementation of [mocha-suppress-logs](https://github.com/AleG94/mocha-suppress-logs).
+
+Implementing the assertions in a way that matches the TDD conventions requires in-depth knowledge of the TDD libraries
+and significantly adds to the scope of this challenge. If you're up for the challenge - great, otherwise, there are
+sub-branches that provide more hints, examples and implementation.
+
+### Requirements
+Work through the following list of requirements, following the TDD process:
+- Write a unit test
+- Run the test (or run `npm run test:tdd`)
+- Write just enough code to make the test pass
+- Refactor
+- Repeat
+
+When you are confident with your implementation, run `npm run coverage` (or use the "Run with coverage" feature in IntelliJ).
+If you have followed TDD your coverage should be high. 100% coverage is possible, but unlikely on the first time you
+check the coverage - review the lines of code which are not covered - do you think that 100% coverage adds enough confidence
+to make it worthwhile?
+
+#### logCapture
+If you need help getting started, merge the `code-kata-logCapture-start` branch.
+
+1. The library must provide a mechanism to intercept calls to `console.debug()`, `console.info()` etc.
+The log messages must be retrievable by unit tests.
+2. The intercept/retrieval mechanism must be resettable so that each unit test can inspect the messages that were logged
+during the execution of that test only.
+3. The intercept method must handle `console.trace()`, `debug()`, `info()`, `log()`, `warn()`, `error()`.
+4. The library must provide a way for the tests to activate the intercept mechanism.
+5. The library must provide a way for the tests to stop the intercept mechanism.
+
+#### Chai Plugin
+If you need help getting started, merge the `code-kata-chai-start` branch.
+
+6. The library must provide a [Chai plugin](https://www.chaijs.com/api/plugins/) which can be used to assert that
+logs match the messages expected by unit tests.
+7. The plugin should allow unit tests to filter logs by level. ie, ignore debug/info level messages when warn/error logs
+are being asserted.
+8. The plugin should allow unit tests to assert that the logs do/not include a given line
+9. The library must cater for multiple parameters being passed to console methods. eg: `console.info('Hello', name)`
+10. The library must support formatted messages. eg: `console.info('Hello %!', name)`;
+
+#### Bonus Credit
+Kata is all about practicing skills over and over. Consider revisiting this challenge and implementing the following:
+
+- [Jest](https://jestjs.io/docs/api) matcher
+- `console.group()`, `console.groupEnd()`, `console.groupCollapsed()`
+- `console.dir()`
+- [Styled console messages](https://developer.chrome.com/docs/devtools/console/format-style/#style-console-messages)
+- A similar Log Appender for Java or the equivalent in C#
+
+Submit PRs to https://github.com/nalbion/log-dd/pulls
+
 ___
 ## **Getting Started**
 
@@ -11,6 +80,7 @@ ___
 - NPM 6
 - [Typescript](https://www.typescriptlang.org/)
 
+---
 ## **Testing**
 ### Lint
     $ npm run lint
