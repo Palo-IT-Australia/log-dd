@@ -64,10 +64,11 @@ are being asserted.
 #### Bonus Credit
 Kata is all about practicing skills over and over. Consider revisiting this challenge and implementing the following:
 
-- [Jest](https://jestjs.io/docs/api) matcher
+- assert logs with regular expressions: `console.info('timestamp:', Date.now())` => `/timestamp: \d+/`
 - `console.group()`, `console.groupEnd()`, `console.groupCollapsed()`
 - `console.dir()`
 - [Styled console messages](https://developer.chrome.com/docs/devtools/console/format-style/#style-console-messages)
+- [Jest](https://jestjs.io/docs/api) matcher
 - A similar Log Appender for Java or the equivalent in C#
 
 Submit PRs to https://github.com/nalbion/log-dd/pulls
