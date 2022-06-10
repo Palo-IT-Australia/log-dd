@@ -64,6 +64,7 @@ are being asserted.
 #### Bonus Credit
 Kata is all about practicing skills over and over. Consider revisiting this challenge and implementing the following:
 
+- support for stack traces: `} catch (err) { console.error('Oops!', err); }`
 - assert logs with regular expressions: `console.info('timestamp:', Date.now())` => `/timestamp: \d+/`
 - `console.group()`, `console.groupEnd()`, `console.groupCollapsed()`
 - `console.dir()`
