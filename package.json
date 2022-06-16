@@ -52,14 +52,14 @@
     "sonarqube": "node -r dotenv/config ./ci/scripts/sonarqube.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --check \"src/**/*.ts*\" --loglevel \"warn\"",
-    "format:fix": "prettier --write \"src/**/*.ts*\" --loglevel \"warn\"",
+    "format": "prettier --check \"src/**/*.{ts,tsx}\" --loglevel \"warn\"",
+    "format:fix": "prettier --write \"src/**/*.{ts,tsx}\" --loglevel \"warn\"",
     "format:lint:fix": "npm run format:fix && npm run lint:fix",
     "test": "mocha -r ts-node/register --recursive \"./src/**/*.spec.ts\" --exit",
     "test:verbose": "mocha -r ts-node/register --recursive \"./src/**/*.spec.ts\" --exit",
     "test:tdd": "mocha -r ts-node/register --watch --watch-files \"./src/**/*.ts\" --recursive \"./src/**/*.spec.ts\" ",
-    "test:ci": "mocha -r ts-node/register --require mocha-suppress-logs -R mocha-reporter-sonarqube -O filename=test-report.xml --recursive \"./src/**/*.spec.ts\" --exit",
-    "build": "tsc",
+    "test:ci": "mocha -r ts-node/register -R mocha-reporter-sonarqube -O filename=test-report.xml --recursive \"./src/**/*.spec.ts\" --exit",
+    "build": "tsc -p tsconfig.build.json",
     "prepublish": "npm run build"
   },
   "pre-commit": [

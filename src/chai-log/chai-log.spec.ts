@@ -14,6 +14,6 @@ describe('chai-log', () => {
     // When
     console.info('Hello World!');
     // Then
-    expect(logCapture).to.console.error('Hello World!');
+    expect(logCapture).to.console.info('Hello World!');
   });
 });
